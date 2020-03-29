@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fujiyama/screens/home/mainFunctions/course_screen.dart';
+import 'package:fujiyama/screens/home/mainFunctions/test.dart';
 import 'package:fujiyama/services/auth.dart';
 
 class Home extends StatefulWidget {
@@ -14,23 +15,23 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        actions: <Widget>[
-          FlatButton.icon(
-              onPressed: () async {
-                await _auth.signOut();
-              },
-              icon: Icon(
-                Icons.person,
-                color: Colors.white,
-              ),
-              label: Text(
-                'Logout',
-                style: TextStyle(color: Colors.white),
-              ))
-        ],
-      ),
+//      appBar: AppBar(
+//        title: Text('Home'),
+//        actions: <Widget>[
+//          FlatButton.icon(
+//              onPressed: () async {
+//                await _auth.signOut();
+//              },
+//              icon: Icon(
+//                Icons.person,
+//                color: Colors.white,
+//              ),
+//              label: Text(
+//                'Logout',
+//                style: TextStyle(color: Colors.white),
+//              ))
+//        ],
+//      ),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -54,7 +55,7 @@ class _HomeState extends State<Home> {
                       children: <Widget>[
                         GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => CourseScreen()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Test()));
                           },
                           child: Stack(
                             alignment: Alignment.center,
