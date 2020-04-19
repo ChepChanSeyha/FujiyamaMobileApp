@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "181334419016",
-    "firebase_url": "https://fujiyama-learning-japanese.firebaseio.com",
-    "project_id": "fujiyama-learning-japanese",
-    "storage_bucket": "fujiyama-learning-japanese.appspot.com"
+    "project_number": "923680514860",
+    "firebase_url": "https://fujiyama-fba7f.firebaseio.com",
+    "project_id": "fujiyama-fba7f",
+    "storage_bucket": "fujiyama-fba7f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:181334419016:android:72665abab65cc40c12da7d",
+        "mobilesdk_app_id": "1:923680514860:android:4af8337d41069b366ac289",
         "android_client_info": {
           "package_name": "kh.edu.itc.gic.fujiyama"
         }
       },
       "oauth_client": [
         {
-          "client_id": "181334419016-gifno1f3ghmmtj782e305lutbi0bs8g3.apps.googleusercontent.com",
+          "client_id": "923680514860-ijvtgcodjia87b3h8ut7pmqp0u75agdq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCIhn5uPJdkKfD9rb3s-xaKmp_ZRGzbZjw"
+          "current_key": "AIzaSyDZrNrwGxlfvkYT6I8Xmr-M7hwua58DCBs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "181334419016-gifno1f3ghmmtj782e305lutbi0bs8g3.apps.googleusercontent.com",
+              "client_id": "923680514860-ijvtgcodjia87b3h8ut7pmqp0u75agdq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

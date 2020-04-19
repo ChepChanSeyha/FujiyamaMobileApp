@@ -14,7 +14,7 @@ class _SignInState extends State<SignIn> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
-  // Text field state
+// Text field state
   String email = '';
   String password = '';
   String error = '';
@@ -24,11 +24,13 @@ class _SignInState extends State<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return loading ? Loading() : Scaffold(
+    return loading
+        ? Loading()
+        : Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
-            padding: EdgeInsets.symmetric(vertical: 70.0, horizontal: 30.0),
+            padding: EdgeInsets.all(30.0),
             child: Form(
                 key: _formKey,
                 child: Column(
@@ -40,25 +42,23 @@ class _SignInState extends State<SignIn> {
                       scale: 1.0,
                     ),
                     SizedBox(
-                      height: 50.0,
+                      height: 20.0,
                     ),
                     TextFormField(
                       validator: (val) =>
-                          val.isEmpty ? 'Enter your email' : null,
+                      val.isEmpty ? 'Enter your email' : null,
                       decoration: InputDecoration(
-                        hintText: 'Email',
+                        labelText: "Email *",
+                        hintText: "jonhson@example.com",
                         icon: Icon(Icons.email),
                       ),
                       onChanged: (val) {
                         setState(() => email = val);
                       },
                     ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
                     TextFormField(
                       validator: (val) =>
-                          val.isEmpty ? 'Enter your Password' : null,
+                      val.isEmpty ? 'Enter your Password' : null,
                       decoration: InputDecoration(
                           suffixIcon: GestureDetector(
                             onTap: () {
@@ -75,7 +75,8 @@ class _SignInState extends State<SignIn> {
                                   : 'hide password',
                             ),
                           ),
-                          hintText: 'Password',
+                          labelText: "Password *",
+                          hintText: "*******",
                           icon: Icon(Icons.vpn_key)),
                       obscureText: _obscureText,
                       onChanged: (val) {
@@ -94,8 +95,9 @@ class _SignInState extends State<SignIn> {
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
                           setState(() => loading = true);
-                          dynamic result = await _auth
-                              .signInWithEmailAndPassword(email, password);
+                          dynamic result =
+                          await _auth.signInWithEmailAndPassword(
+                              email, password);
                           if (result == null) {
                             setState(() {
                               error = 'Invalid email or password';
@@ -106,7 +108,7 @@ class _SignInState extends State<SignIn> {
                       },
                     ),
                     SizedBox(
-                      height: 50.0,
+                      height: 20.0,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +120,7 @@ class _SignInState extends State<SignIn> {
                         GestureDetector(
                           child: Row(
                             children: <Widget>[
-                              Text('Sign Up',
+                              Text('Register',
                                   style: TextStyle(
                                     color: Color(0xffE91403),
                                     fontSize: 16,
@@ -130,9 +132,32 @@ class _SignInState extends State<SignIn> {
                           onTap: () {
                             widget.toggleView();
                           },
-                        )
+                        ),
                       ],
-                    )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          _auth.signInAnon();
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'Or  ',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            Text(
+                              'Register later',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline),
+                            ),
+                          ],
+                        )),
                   ],
                 ))),
       ),
