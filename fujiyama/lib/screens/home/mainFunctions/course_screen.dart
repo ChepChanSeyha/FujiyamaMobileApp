@@ -13,7 +13,7 @@ class _CourseScreenState extends State<CourseScreen> {
   bool _loadingCourse = true;
 
   _getCourse() async {
-    Query query = _fireStore.collection('courses');
+    Query query = _fireStore.collection('course');
 
     setState(() {
       _loadingCourse = true;
@@ -54,7 +54,7 @@ class _CourseScreenState extends State<CourseScreen> {
                 ),
                 Positioned(
                   top: MediaQuery.of(context).size.width * 0.4,
-                  right: MediaQuery.of(context).size.width / 3,
+                  right: MediaQuery.of(context).size.width / 3.4,
                   child: Text(
                     'COURSE',
                     style: TextStyle(
@@ -67,7 +67,7 @@ class _CourseScreenState extends State<CourseScreen> {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: _loadingCourse == true
                 ? Container(
                     child: Center(
@@ -82,10 +82,13 @@ class _CourseScreenState extends State<CourseScreen> {
                         : ListView.builder(
                             itemCount: _courses.length,
                             itemBuilder: (BuildContext ctx, int index) {
-                              return ListTile(
-                                title: Text(_courses[index].data['title']),
-                                subtitle:
-                                    Text(_courses[index].data['description']),
+                              return Container(
+                                color: Colors.red,
+                                child: ListTile(
+                                  title: Text(_courses[index].data['title']),
+                                  subtitle:
+                                      Text(_courses[index].data['description']),
+                                ),
                               );
                             },
                           )),

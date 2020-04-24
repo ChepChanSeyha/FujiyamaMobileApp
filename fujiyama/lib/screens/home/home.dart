@@ -15,27 +15,26 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      appBar: AppBar(
-//        title: Text('Home'),
-//        actions: <Widget>[
-//          FlatButton.icon(
-//              onPressed: () async {
-//                await _auth.signOut();
-//              },
-//              icon: Icon(
-//                Icons.person,
-//                color: Colors.white,
-//              ),
-//              label: Text(
-//                'Logout',
-//                style: TextStyle(color: Colors.white),
-//              ))
-//        ],
-//      ),
+      appBar: AppBar(
+        title: Text('Home'),
+        actions: <Widget>[
+          FlatButton.icon(
+              onPressed: () async {
+                await _auth.signOut();
+              },
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Logout',
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
       body: Column(
         children: <Widget>[
           Expanded(
-            flex: 1,
             child: Stack(
               children: <Widget>[
                 Container(
@@ -46,153 +45,26 @@ class _HomeState extends State<Home> {
                         ),
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        GestureDetector(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Test()));
-                          },
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: <Widget>[
-                              Container(
-                                height: MediaQuery.of(context).size.height/6,
-                                width: MediaQuery.of(context).size.width/3,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  color: Colors.red,
-                                ),
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  Stack(
-                                    alignment: Alignment.center,
-                                    children: <Widget>[
-                                      Container(
-                                        alignment: Alignment.bottomCenter,
-                                        height: MediaQuery.of(context).size.height/9,
-                                        width: MediaQuery.of(context).size.width/5,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      Container(
-                                        alignment: Alignment.bottomCenter,
-                                        height: MediaQuery.of(context).size.height/9,
-                                        width: MediaQuery.of(context).size.width/6,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Colors.red,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text('COURSE', style: TextStyle(color: Colors.white),),
-                                ],
-                              ),
-                            ],
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => CourseScreen()));
+                            },
+                            child: _myStyle(context, "COURSE", Colors.red, Colors.red)
                           ),
-                        ),
-                        Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[
-                            Container(
-                              height: MediaQuery.of(context).size.height/6,
-                              width: MediaQuery.of(context).size.width/3,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.brown,
-                              ),
-                            ),
-                            Column(
-                              children: <Widget>[
-                                Stack(
-                                  alignment: Alignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      alignment: Alignment.bottomCenter,
-                                      height: MediaQuery.of(context).size.height/9,
-                                      width: MediaQuery.of(context).size.width/5,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.bottomCenter,
-                                      height: MediaQuery.of(context).size.height/9,
-                                      width: MediaQuery.of(context).size.width/6,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.brown,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text('STATUS', style: TextStyle(color: Colors.white),),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[
-                            Container(
-                              height: MediaQuery.of(context).size.height/6,
-                              width: MediaQuery.of(context).size.width/3,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                color: Colors.red,
-                              ),
-                            ),
-                            Column(
-                              children: <Widget>[
-                                Stack(
-                                  alignment: Alignment.center,
-                                  children: <Widget>[
-                                    Container(
-                                      alignment: Alignment.bottomCenter,
-                                      height: MediaQuery.of(context).size.height/9,
-                                      width: MediaQuery.of(context).size.width/5,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.bottomCenter,
-                                      height: MediaQuery.of(context).size.height/9,
-                                      width: MediaQuery.of(context).size.width/6,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.red,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Text('PLAY', style: TextStyle(color: Colors.white),),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
-                  ],
+                          _myStyle(context, "STATUS", Colors.brown, Colors.brown),
+                          _myStyle(context, "PLAY", Colors.red, Colors.red)
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -203,21 +75,49 @@ class _HomeState extends State<Home> {
   }
 }
 
-Widget _myStyle(String text) {
-  return Container(
-      width: 120,
-      height: 120,
-      decoration: BoxDecoration(
-        color: Colors.red,
-        shape: BoxShape.rectangle,
-      ),
-      child: Container(
-        alignment: Alignment.center,
+Widget _myStyle(BuildContext context, String text, Color color1, Color color2) {
+  return Stack(
+    alignment: Alignment.center,
+    children: <Widget>[
+      Container(
+        height: MediaQuery.of(context).size.height/6,
+        width: MediaQuery.of(context).size.width/3,
         decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
+          shape: BoxShape.rectangle,
+          color: color1,
         ),
-        child: Text(text),
-      )
+      ),
+      Column(
+        children: <Widget>[
+          Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.bottomCenter,
+                height: MediaQuery.of(context).size.height/9,
+                width: MediaQuery.of(context).size.width/5,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                ),
+              ),
+              Container(
+                alignment: Alignment.bottomCenter,
+                height: MediaQuery.of(context).size.height/9,
+                width: MediaQuery.of(context).size.width/6,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: color2,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(text, style: TextStyle(color: Colors.white),),
+        ],
+      ),
+    ],
   );
 }
