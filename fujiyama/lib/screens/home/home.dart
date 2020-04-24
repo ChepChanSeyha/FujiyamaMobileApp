@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fujiyama/screens/home/mainFunctions/course_screen.dart';
-import 'package:fujiyama/screens/home/mainFunctions/test.dart';
 import 'package:fujiyama/services/auth.dart';
+
+import 'course_screen.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
                 Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/images/background.png"),
+                        image: AssetImage("assets/images/splashScreen.png"),
                         fit: BoxFit.fitWidth,
                         ),
                   ),

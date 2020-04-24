@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fujiyama/screens/wrapper.dart';
+import 'package:fujiyama/screens/splash_screen.dart';
+import 'package:fujiyama/shared/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'models/user.dart';
+import 'screens/home/home.dart';
 import 'services/auth.dart';
 
 void main() => runApp(MyApp());
@@ -18,7 +20,11 @@ class MyApp extends StatelessWidget {
         ),
         title: 'Fujiyama',
         debugShowCheckedModeBanner: false,
-        home: Wrapper(),
+        home: SplashScreen(),
+        routes: <String, WidgetBuilder>{
+          '/Wrapper': (BuildContext context) => Wrapper(),
+          '/HomeScreen': (BuildContext context) => Home()
+        },
       ),
     );
   }

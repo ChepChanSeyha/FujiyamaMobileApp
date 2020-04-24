@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fujiyama/screens/authenticate/sign_in.dart';
-import 'package:fujiyama/screens/authenticate/sign_up.dart';
+import 'package:fujiyama/authenticate/login_screen.dart';
+import 'package:fujiyama/authenticate/sign_in.dart';
+import 'package:fujiyama/authenticate/sign_up.dart';
 
 class Authenticate extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _AuthenticateState extends State<Authenticate> {
   @override
   Widget build(BuildContext context) {
     if(showSignIn) {
-      return SignIn(toggleView: toggleView);
+      return Login(toggleView: toggleView);
     } else {
       return SignUp(toggleView: toggleView);
     }

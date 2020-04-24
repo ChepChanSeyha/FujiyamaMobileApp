@@ -46,7 +46,7 @@ class _CourseScreenState extends State<CourseScreen> {
                 Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/head.png"),
+                      image: AssetImage("assets/images/startup.png"),
                       fit: BoxFit.fitWidth,
                       alignment: Alignment.topCenter,
                     ),
