@@ -31,142 +31,170 @@ class _LoginState extends State<Login> {
         ? Loading()
         : Scaffold(
             body: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
               child: Stack(
-                alignment: Alignment.center,
                 children: <Widget>[
                   Container(
-                    height: MediaQuery.of(context).size.height*1,
+                    height: MediaQuery.of(context).size.height * 1,
                     child: Image.asset(
-                      "assets/images/startup.png",
-                      fit: BoxFit.fitHeight,
+                      "assets/images/bg_style_top.png",
+                      fit: BoxFit.cover,
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.54),
-                    child: Text('START', style: TextStyle(color: Colors.red, fontSize: 30),),
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.2),
+                    child: Text(
+                      'START',
+                      style: TextStyle(color: Colors.red, fontSize: 30),
+                    ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.13),
-                      child: Form(
-                          key: _formKey,
-                          child: Column(
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(right: 30, left: 30),
-                                child: Stack(
+                    alignment: Alignment.topCenter,
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.3),
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.only(right: 5.0, left: 5.0),
+                          child: Image.asset(
+                            'assets/images/status_bg_white.png',
+                            width: MediaQuery.of(context).size.width * 1,
+                            height: MediaQuery.of(context).size.width * 0.87,
+                            color: Colors.white.withOpacity(0.7),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Container(
+                            padding: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.width * 0.05),
+                            child: Form(
+                                key: _formKey,
+                                child: Column(
                                   children: <Widget>[
-                                    Container(
-                                      height: 55,
-                                      width: 300,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10.0),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 25, left: 25),
+                                      child: Container(
+                                        height: 50,
+                                        width: 310,
                                         color: Colors.white,
-                                      ),
-                                    ),
-                                    Container(
-                                      child: TextFormField(
-                                        keyboardType: TextInputType.emailAddress,
-                                        validator: Validator().validateEmail,
-                                        decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.all(20),
-                                            hintText: "Email",
-                                            border: InputBorder.none
+                                        child: TextFormField(
+                                          keyboardType:
+                                          TextInputType.emailAddress,
+//                                              validator: Validator().validateEmail,
+                                          decoration: InputDecoration(
+                                              contentPadding:
+                                              EdgeInsets.all(15),
+                                              hintText: "Email",
+                                              border: InputBorder.none),
+                                          onChanged: (val) {
+                                            setState(() => email = val);
+                                          },
                                         ),
-                                        onChanged: (val) {
-                                          setState(() => email = val);
-                                        },
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 30, left: 30),
-                                child: Stack(
-                                  children: <Widget>[
-                                    Container(
-                                      height: 55,
-                                      width: 300,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10.0),
-                                        color: Colors.white,
                                       ),
                                     ),
-                                    Container(
-                                      child: TextFormField(
-                                        keyboardType: TextInputType.text,
-                                        autofocus: false,
-                                        validator: Validator().validatePassword,
-                                        decoration: InputDecoration(
-                                          suffixIcon: GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                _obscureText = !_obscureText;
-                                              });
-                                            },
-                                            child: Icon(
-                                              _obscureText
-                                                  ? Icons.visibility_off
-                                                  : Icons.visibility,
-                                              semanticLabel: _obscureText
-                                                  ? 'show password'
-                                                  : 'hide password',
+                                    SizedBox(
+                                      height: 9,
+                                    ),
+                                    Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 25, left: 25),
+                                        child: Container(
+                                          height: 50,
+                                          width: 310,
+                                          color: Colors.white,
+                                          child: TextFormField(
+                                            keyboardType:
+                                            TextInputType.text,
+                                            autofocus: false,
+//                                                validator: Validator().validatePassword,
+                                            decoration: InputDecoration(
+                                              suffixIcon: GestureDetector(
+                                                onTap: () {
+                                                  setState(() {
+                                                    _obscureText =
+                                                    !_obscureText;
+                                                  });
+                                                },
+                                                child: Icon(
+                                                  _obscureText
+                                                      ? Icons.visibility_off
+                                                      : Icons.visibility,
+                                                  semanticLabel:
+                                                  _obscureText
+                                                      ? 'show password'
+                                                      : 'hide password',
+                                                ),
+                                              ),
+                                              hintText: "Password",
+                                              border: InputBorder.none,
+                                              contentPadding:
+                                              EdgeInsets.all(15),
                                             ),
+                                            onChanged: (val) {
+                                              setState(
+                                                      () => password = val);
+                                            },
                                           ),
-                                          hintText: "Password",
-                                          border: InputBorder.none,
-                                          contentPadding: EdgeInsets.all(20),
+                                        )),
+                                    SizedBox(
+                                      height: 9,
+                                    ),
+                                    RaisedButton(
+                                      padding: EdgeInsets.only(
+                                          left: 0.0, right: 0.0),
+                                      child: customBtn(context, 'LOG IN',
+                                          Colors.red, Colors.white),
+                                      onPressed: () async {
+                                        if (_formKey.currentState.validate()) {
+                                          setState(() => loading = true);
+                                          dynamic result = await _auth
+                                              .signInWithEmailAndPassword(
+                                                  email, password);
+                                          if (result == null) {
+                                            setState(() {
+                                              error =
+                                                  'Invalid email or password';
+                                              loading = false;
+                                            });
+                                          }
+                                        }
+                                      },
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 9, bottom: 9),
+                                      child: Container(
+                                        child: Text(
+                                          'OR',
+                                          style: TextStyle(fontSize: 20),
                                         ),
-                                        onChanged: (val) {
-                                          setState(() => password = val);
-                                        },
                                       ),
-                                    )
+                                    ),
+                                    RaisedButton(
+                                      padding: EdgeInsets.only(
+                                          left: 0.0, right: 0.0),
+                                      child: customBtn(
+                                          context,
+                                          'CREATE AN ACCOUNT',
+                                          Colors.red,
+                                          Colors.white),
+                                      onPressed: () async {
+                                        widget.toggleView();
+                                      },
+                                    ),
                                   ],
-                                )
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              RaisedButton(
-                                padding: EdgeInsets.only(left: 0.0, right: 0.0),
-                                child: customBtn(context, 'LOG IN', Colors.red,
-                                    Colors.white),
-                                onPressed: () async {
-                                  if (_formKey.currentState.validate()) {
-                                    setState(() => loading = true);
-                                    dynamic result =
-                                        await _auth.signInWithEmailAndPassword(
-                                            email, password);
-                                    if (result == null) {
-                                      setState(() {
-                                        error = 'Invalid email or password';
-                                        loading = false;
-                                      });
-                                    }
-                                  }
-                                },
-                              ),
-                              Container(
-                                child: Text('OR', style: TextStyle(fontSize: 20),),
-                              ),
-                              RaisedButton(
-                                padding: EdgeInsets.only(left: 0.0, right: 0.0),
-                                child: customBtn(context, 'CREATE AN ACCOUNT',
-                                    Colors.red, Colors.white),
-                                onPressed: () async {
-                                  widget.toggleView();
-                                },
-                              ),
-                            ],
-                          ))),
+                                ))),
+                      ],
+                    ),
+                  ),
                   Container(
-                    margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.9, bottom: 10),
-                    child: customBtn(context, 'LOG IN WITH FACEBOOK', Colors.blue[800], Colors.white),
+                    alignment: Alignment.center,
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.85),
+                    child: customBtn(context, 'LOG IN WITH FACEBOOK',
+                        Colors.blue[800], Colors.white),
                   ),
                 ],
               ),

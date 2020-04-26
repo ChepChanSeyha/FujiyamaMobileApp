@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fujiyama/authenticate/create_newAcc.dart';
 import 'package:fujiyama/authenticate/login_screen.dart';
 import 'package:fujiyama/authenticate/sign_in.dart';
 import 'package:fujiyama/authenticate/sign_up.dart';
@@ -20,7 +21,7 @@ class _AuthenticateState extends State<Authenticate> {
     if(showSignIn) {
       return Login(toggleView: toggleView);
     } else {
-      return SignUp(toggleView: toggleView);
+      return NewAccount(toggleView: toggleView);
     }
   }
 }

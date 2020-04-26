@@ -1,7 +1,5 @@
 class Validator {
   String validatePassword(String value) {
-    String pattern = r'(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$)';
-    RegExp regExp = new RegExp(pattern);
     if (value.isEmpty) {
       return "Password is Required";
     } else if (value.length < 8) {
